@@ -6,38 +6,47 @@
 			<source>(newest version)</source>
 			<translation>(neueste Version)</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>A secure bitcoin savings wallet for everyone.</source>
 			<translation>Eine sichere Bitcoin-Sparwallet für alle.</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>Binaries are {link}.</source>
 			<translation>Binärdateien sind unter {link}.</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>Bitcoin-Safe</source>
 			<translation>Bitcoin-Safe</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>FOSS - Free &amp; Open Source Software</source>
 			<translation>FOSS - Freie &amp; Open-Source-Software</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>Licence</source>
 			<translation>Lizenz</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>Update available</source>
 			<translation>Update verfügbar</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>Update to {version} available</source>
 			<translation>Update auf {version} verfügbar</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>Version {version}</source>
 			<translation>Version {version}</translation>
 		</message>
+		<name>AboutTab</name>
 		<message>
 			<source>reproducible</source>
 			<translation>reproduzierbar</translation>
@@ -49,14 +58,17 @@
 			<source>No additional signatures were added</source>
 			<translation>Es wurden keine weiteren Unterschriften hinzugefügt</translation>
 		</message>
+		<name>AbstractSignatureImporter</name>
 		<message>
 			<source>The input is incompatible with the PSBT to be signed.</source>
 			<translation>Die Eingabe ist mit dem zu signierenden PSBT nicht kompatibel.</translation>
 		</message>
+		<name>AbstractSignatureImporter</name>
 		<message>
 			<source>The txid of the signed psbt doesnt match the original txid</source>
 			<translation>Die txid der signierten psbt stimmt nicht mit der ursprünglichen txid überein</translation>
 		</message>
+		<name>AbstractSignatureImporter</name>
 		<message>
 			<source>bdk libary error. The txid should not be changed during finalizing</source>
 			<translation>Fehler in der bdk-Bibliothek. Die TXID darf während der Finalisierung nicht geändert werden.</translation>
@@ -68,6 +80,7 @@
 			<source>Add new category</source>
 			<translation>Neue Kategorie hinzufügen</translation>
 		</message>
+		<name>AddCategoryButton</name>
 		<message>
 			<source>KYC Exchange, Private, ...</source>
 			<translation>KYC-Börse, Privat, …</translation>
@@ -79,10 +92,12 @@
 			<source>Invalid Address</source>
 			<translation>Ungültige Adresse</translation>
 		</message>
+		<name>AddressAnalyzer</name>
 		<message>
 			<source>Missing Address</source>
 			<translation>Fehlende Adresse</translation>
 		</message>
+		<name>AddressAnalyzer</name>
 		<message>
 			<source>Valid Address</source>
 			<translation>Gültige Adresse</translation>
@@ -94,6 +109,7 @@
 			<source>Address descriptor</source>
 			<translation>Adressbeschreibung</translation>
 		</message>
+		<name>AddressDetailsAdvanced</name>
 		<message>
 			<source>Signed Message</source>
 			<translation>Signierte Nachricht</translation>
@@ -105,14 +121,17 @@
 			<source>Address</source>
 			<translation>Adresse</translation>
 		</message>
+		<name>AddressDialog</name>
 		<message>
 			<source>Advanced</source>
 			<translation>Fortgeschritten</translation>
 		</message>
+		<name>AddressDialog</name>
 		<message>
 			<source>Close</source>
 			<translation>Schließen</translation>
 		</message>
+		<name>AddressDialog</name>
 		<message>
 			<source>Validate</source>
 			<translation>Validieren</translation>
@@ -131,14 +150,17 @@
 			<source>Address</source>
 			<translation>Adresse</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Address {address}</source>
 			<translation>Adresse {address}</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Balance</source>
 			<translation>Saldo</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Category</source>
 			<translation>Kategorie</translation>
@@ -147,66 +169,82 @@
 			<source>Copy Addresses</source>
 			<translation>Adressen kopieren</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Copy as csv</source>
 			<translation>Als CSV kopieren</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Details</source>
 			<translation>Details</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Index</source>
 			<translation>Index</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Label</source>
 			<translation>Label</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>No spendable UTXOs found for the selected addresses.</source>
 			<translation>Keine ausgabefähigen UTXOs für die ausgewählten Adressen gefunden.</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Number of transactions</source>
 			<translation>Anzahl der Transaktionen</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Please select addresses from a single wallet to choose UTXOs for sending.</source>
 			<translation>Bitte wählen Sie Adressen aus einer einzigen Wallet aus, um UTXOs für den Versand auszuwählen.</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Select corresponding UTXOs for sending</source>
 			<translation>Zugehörige UTXOs für den Versand auswählen</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Set category</source>
 			<translation>Kategorie festlegen</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Tx</source>
 			<translation>Tx</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Type</source>
 			<translation>Typ</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Value</source>
 			<translation>Wert</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>View on block explorer</source>
 			<translation>Auf Block-Explorer anzeigen</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>Wallet</source>
 			<translation>Wallet</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>change</source>
 			<translation>Ändern</translation>
 		</message>
+		<name>AddressList</name>
 		<message>
 			<source>change address</source>
 			<translation>Wechseladresse</translation>
