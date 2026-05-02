@@ -2139,6 +2139,10 @@ class Wallet(BaseSaveableClass, CacheManager):
             recipient_category=recipient_category,
             fee_rate=txinfos.fee_rate,
         )
+        builder_infos.hidden_tx_infos = txinfos.hidden
+        if txinfos.tx_label:
+            txid_str = str(builder_infos.psbt.extract_tx().compute_txid())
+            self.labels.set_tx_label(txid_str, txinfos.tx_label, timestamp="now")
         return builder_infos
 
     def create_psbt(self, txinfos: TxUiInfos) -> TxBuilderInfos:
@@ -2229,6 +2233,7 @@ class Wallet(BaseSaveableClass, CacheManager):
             recipient_category=recipient_category,
             fee_rate=txinfos.fee_rate,
         )
+        builder_infos.hidden_tx_infos = txinfos.hidden
 
         tx = builder_infos.psbt.extract_tx()
         self.set_addresses_category_if_unused(
@@ -2242,6 +2247,10 @@ class Wallet(BaseSaveableClass, CacheManager):
         )
         self._set_recipient_address_labels(builder_infos.recipients)
         self._set_labels_for_change_outputs(builder_infos)
+
+        if txinfos.tx_label:
+            txid_str = str(builder_infos.psbt.extract_tx().compute_txid())
+            self.labels.set_tx_label(txid_str, txinfos.tx_label, timestamp="now")
 
         # self._label_txid_by_recipient_labels(builder_infos)
         return builder_infos
@@ -2349,6 +2358,19 @@ class Wallet(BaseSaveableClass, CacheManager):
                 if python_utxo.is_spent_by_txid:
                     conflicting_python_utxos.append(python_utxo)
         return conflicting_python_utxos
+
+    def get_replacing_txids_for_outpoints(
+        self, input_outpoints: Iterable[OutPoint], replaced_txid: str | None = None
+    ) -> set[str]:
+        """Return txids that currently spend the provided input outpoints."""
+        replacing_txids = {
+            python_utxo.is_spent_by_txid
+            for python_utxo in self.get_conflicting_python_txos(input_outpoints)
+            if python_utxo.is_spent_by_txid
+        }
+        if replaced_txid:
+            replacing_txids.discard(replaced_txid)
+        return replacing_txids
 
     @instance_lru_cache()
     def sorted_delta_list_transactions(self, access_marker=None) -> list[TransactionDetails]:
