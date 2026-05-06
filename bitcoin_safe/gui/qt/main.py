@@ -481,7 +481,9 @@ class MainWindow(UnlockableMainWindow):
             network=self.config.network, parent=self.sidebar_search_tree.bottom_controls_container
         )
         self.sidebar_search_tree.bottom_controls_layout.addWidget(self.sidebar_network_combobox)
-        self.sidebar_network_combobox.setVisible(self.config.network != bdk.Network.BITCOIN)
+        self.sidebar_network_combobox.setVisible(
+            (self.config.network != bdk.Network.BITCOIN) and not DEMO_MODE
+        )
 
         self.tab_wallets.setObjectName(f"member of {self.__class__.__name__}")
         self.tab_wallets.setSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
@@ -2340,7 +2342,7 @@ class MainWindow(UnlockableMainWindow):
                 )
                 self.close_tab(root_node)
                 if qt_wallet.history_tab.isVisible():
-                    qt_wallet.tabs.setCurrentWidget(qt_wallet.history_tab)
+                    qt_wallet.hist_node.select()
 
             else:
                 return
@@ -2411,7 +2413,7 @@ class MainWindow(UnlockableMainWindow):
             qt_protowallet.wizard.set_visibilities()
             qt_protowallet.wizard.node.select()
         else:
-            qt_protowallet.tabs.select()
+            qt_protowallet.settings_node.select()
 
         return qt_protowallet
 
@@ -2545,6 +2547,8 @@ class MainWindow(UnlockableMainWindow):
         if qt_wallet.wizard.should_be_visible:
             qt_wallet.wizard.set_visibilities()
             qt_wallet.wizard.node.select()
+        elif focus:
+            qt_wallet.hist_node.select()
 
         self.language_chooser.add_signal_language_switch(self.signals.language_switch)
         self.wallet_functions.wallet_signals[qt_wallet.wallet.id].show_address.connect(self.show_address)
