@@ -670,6 +670,9 @@ class BalanceChart(QWidget):
         self.signal_zoom_state_changed.emit(self.is_zoomed())
 
     def _on_value_axis_range_changed(self, _min: float, _max: float) -> None:
+        if _min < 0:
+            self.value_axis.setRange(0, _max - _min)
+            return
         visible_span = abs(_max - _min)
         if visible_span > 0:
             self.set_value_axis_label_format(visible_span)
@@ -779,7 +782,12 @@ class BalanceChart(QWidget):
 
         self.set_time_axis_label_format(x_values=x_values)
 
-        for p in chart_points:
+        step_points = [chart_points[0]]
+        for p in chart_points[1:]:
+            step_points.append(ChartPoint(x=p.x, y=step_points[-1].y, id=p.id))
+            step_points.append(p)
+
+        for p in step_points:
             self.line_series.append(
                 QDateTime.fromSecsSinceEpoch(int(p.x)).toMSecsSinceEpoch(),
                 p.y,
@@ -862,7 +870,7 @@ class WalletBalanceChart(BalanceChart):
 
     def on_signal_click(self, index: int):
         """On signal click."""
-        tx_index = max(0, index - 1)
+        tx_index = max(0, (index - 1) // 2)
         if tx_index >= len(self.transactions):
             tx_index = len(self.transactions) - 1
         self.signal_click_transaction.emit(self.transactions[tx_index])
