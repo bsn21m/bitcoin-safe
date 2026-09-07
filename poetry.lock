@@ -536,7 +536,7 @@ trezor = "^0.20.0"
 type = "git"
 url = "https://github.com/andreasgriffin/bitcoin-usb.git"
 reference = "main"
-resolved_reference = "e115492d3e12c79e22e60127430fbef86bb01d3e"
+resolved_reference = "de8ba944b680876109beb97a25d7cae81ea2afc4"
 
 [[package]]
 name = "bleak"
