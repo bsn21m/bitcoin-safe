@@ -27,30 +27,7 @@ jobs:
         run: bash tools/deterministic-build/compile.sh
 
       - name: Fail if deterministic build files changed
-        run: |
-          set -euo pipefail
-          # pip-compile embeds the Python version and the constraint-file
-          # path in comment lines (starting with '#'), which can differ
-          # across environments. Only fail when the actual pins and hashes
-          # (non-comment content) change, or when build artifacts are left
-          # behind as untracked files.
-          untracked="$(git ls-files --others --exclude-standard)"
-          if [ -n "$untracked" ]; then
-            echo "Running tools/deterministic-build/compile.sh left untracked files:"
-            echo "$untracked"
-            exit 1
-          fi
-          content_diff="$(git --no-pager diff \
-            | grep -E '^[+-][^+-]' \
-            | grep -vE '^[+-][[:space:]]*#' \
-            | grep -vE '^[+-][[:space:]]*$' \
-            || true)"
-          if [ -n "$content_diff" ]; then
-            echo "Running tools/deterministic-build/compile.sh produced non-comment changes:"
-            git status --short
-            git --no-pager diff
-            exit 1
-          fi
+        run: bash tools/deterministic-build/check_no_content_changes.sh
 
   linux-tests:
     strategy:
