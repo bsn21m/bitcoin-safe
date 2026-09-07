@@ -1015,7 +1015,7 @@ def collect_backend_specs(
     pypi: PypiIndex,
 ) -> set[str]:
     specs: set[str] = set()
-    specs.update(["poetry-core", "setuptools", "wheel"])
+    specs.update(["poetry-core", "poetry", "setuptools", "wheel"])
 
     chosen_runtime_sdists: list[tuple[str, str, str]] = []
     for package in runtime_packages:
